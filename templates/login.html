@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="login-container">
+        <div class="login-form">
+            <h1>🔐 Encryption / Decryption</h1>
+            <h2>Login to Your Account</h2>
+
+            <form method="POST" class="form-box">
+                <div class="input-group">
+                    <label>Your Registered Email</label>
+                    <input type="email" name="email" required placeholder="Enter your email" class="input-field">
+                </div>
+
+                <div class="input-group">
+                    <label>Your Password</label>
+                    <input type="password" name="password" required placeholder="Enter your password" class="input-field">
+                </div>
+
+                <div class="submit-btn">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+
+            <p class="register-prompt">Don't have an account? <a href="{{ url_for('register') }}">Please Register</a></p>
+        </div>
+    </div>
+{% endblock %}

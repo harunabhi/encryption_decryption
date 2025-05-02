@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="dashboard-container">
+        <h2>🔒 Encrypt / Decrypt Message</h2>
+        <form method="POST" class="form-box">
+            <div class="input-group">
+                <label>Your Message</label>
+                <textarea name="message" required class="input-field"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Secret Key</label>
+                <input type="text" name="secret_key" required class="input-field">
+            </div>
+
+            <div class="submit-btn">
+                <input type="submit" value="Encrypt & Decrypt">
+            </div>
+        </form>
+
+        {% if encrypted %}
+            <div class="result-box">
+                <h3>Encrypted:</h3>
+                <p>{{ encrypted }}</p>
+
+                <h3>Decrypted:</h3>
+                <p>{{ decrypted }}</p>
+            </div>
+        {% endif %}
+
+        <h3>Your Message History</h3>
+        <table class="data-table">
+            <tr>
+                <th>Original</th>
+                <th>Encrypted</th>
+                <th>Decrypted</th>
+                <th>Action</th>
+            </tr>
+            {% for msg in messages %}
+            <tr>
+                <td>{{ msg.original }}</td>
+                <td>{{ msg.encrypted }}</td>
+                <td>{{ msg.decrypted }}</td>
+                <td><a href="{{ url_for('delete', id=msg.id) }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

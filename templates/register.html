@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="POST" class="form-box">
+    <label>Email</label>
+    <input type="email" name="email" id="email" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <label>Gender</label>
+    <select name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <input type="submit" value="Register">
+</form>
+<p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+{% endblock %}

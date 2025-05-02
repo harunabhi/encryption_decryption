@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt/Decrypt</title>
+</head>
+<body>
+    <h1>Encryption/Decryption</h1>
+
+    <form method="POST">
+        <!-- Message input field -->
+        <label for="message">Enter Message:</label>
+        <textarea name="message" required></textarea><br>
+
+        <!-- Secret Key input field -->
+        <label for="input_secret_key">Enter Secret Key:</label>
+        <input type="text" name="input_secret_key" required><br>
+
+        <button type="submit">Encrypt/Decrypt</button>
+    </form>
+
+    {% if encrypted %}
+        <h3>Encrypted Message:</h3>
+        <p>{{ encrypted }}</p>
+    {% endif %}
+
+    {% if decrypted %}
+        <h3>Decrypted Message:</h3>
+        <p>{{ decrypted }}</p>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}">Go to Dashboard</a> |
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

@@ -138,3 +138,47 @@ select:focus {
 .data-table a:hover {
     text-decoration: underline;
 }
+.result-box {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-top: 20px;
+    border-left: 5px solid #007BFF;
+    word-wrap: break-word;      /* ✅ long words break হবে */
+    white-space: pre-wrap;      /* ✅ preserve newlines + wrap */
+    overflow-x: auto;           /* ✅ horizontal scroll যদি দরকার হয় */
+    max-width: 100%;
+    border-radius: 8px;
+}
+/* Message History Section */
+.message-history {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+/* Each individual message */
+.message-entry {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-left: 4px solid #007BFF;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Make delete link more attractive */
+.message-entry a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.message-entry a:hover {
+    color: #e60000;
+}

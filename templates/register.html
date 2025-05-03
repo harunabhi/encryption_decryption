@@ -1,22 +1,34 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="registration-box">
+            <h1>Register</h1>
+            <form method="POST">
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required><br><br>
 
-{% block content %}
-<h2>Register</h2>
-<form method="POST" class="form-box">
-    <label>Email</label>
-    <input type="email" name="email" id="email" required>
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required><br><br>
 
-    <label>Password</label>
-    <input type="password" name="password" required>
+                <label for="gender">Gender:</label><br>
+                <select name="gender" id="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select><br><br>
 
-    <label>Gender</label>
-    <select name="gender" required>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Other">Other</option>
-    </select>
+                <button type="submit">Register</button>
+            </form>
 
-    <input type="submit" value="Register">
-</form>
-<p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
-{% endblock %}
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>
+

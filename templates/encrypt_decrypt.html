@@ -2,35 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encrypt/Decrypt</title>
+    <title>Encryption/Decryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .message-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+        .message-box h2 {
+            color: #333;
+        }
+        .message-history {
+            margin-top: 40px;
+        }
+        .message-history div {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            background-color: #fafafa;
+        }
+        .message-history div p {
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <h1>Encryption/Decryption</h1>
-
     <form method="POST">
-        <!-- Message input field -->
-        <label for="message">Enter Message:</label>
-        <textarea name="message" required></textarea><br>
+        <label for="text">Enter your message:</label><br>
+        <textarea name="text" required></textarea><br><br>
 
-        <!-- Secret Key input field -->
-        <label for="input_secret_key">Enter Secret Key:</label>
-        <input type="text" name="input_secret_key" required><br>
+        <label for="secret_key">Secret Key:</label><br>
+        <input type="text" name="secret_key" required><br><br>
 
         <button type="submit">Encrypt/Decrypt</button>
     </form>
 
     {% if encrypted %}
-        <h3>Encrypted Message:</h3>
+    <div class="message-box">
+        <h2>Encrypted Message:</h2>
         <p>{{ encrypted }}</p>
+    </div>
     {% endif %}
 
     {% if decrypted %}
-        <h3>Decrypted Message:</h3>
+    <div class="message-box">
+        <h2>Decrypted Message:</h2>
         <p>{{ decrypted }}</p>
+    </div>
     {% endif %}
 
-    <a href="{{ url_for('dashboard') }}">Go to Dashboard</a> |
+    <div class="message-history">
+        <h2>Message History:</h2>
+        {% if messages %}
+            {% for msg in messages %}
+                <div>
+                    <p><strong>Original:</strong> {{ msg.original }}</p>
+                    <p><strong>Encrypted:</strong> {{ msg.encrypted }}</p>
+                    <p><strong>Decrypted:</strong> {{ msg.decrypted }}</p>
+                    <p><strong>Timestamp:</strong> {{ msg.timestamp }}</p>
+                    <a href="{{ url_for('delete_message', message_id=msg.id) }}">Delete</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No message history found.</p>
+        {% endif %}
+    </div>
+    
+    <br><a href="{{ url_for('dashboard') }}">Go to Dashboard</a><br>
     <a href="{{ url_for('logout') }}">Logout</a>
 </body>
 </html>

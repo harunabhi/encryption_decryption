@@ -1,21 +1,30 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Your Message History</h1>
 
-{% block content %}
-    <h2>{{ user.email }}'s Dashboard</h2>
-    <h3>Your Messages:</h3>
-    <ul>
+    {% if messages %}
+        <ul>
         {% for msg in messages %}
             <li>
-                <b>Original:</b> {{ msg.original }} <br>
-                <b>Encrypted:</b> {{ msg.encrypted }} <br>
-                <b>Decrypted:</b> {{ msg.decrypted }} <br>
-                <small>Timestamp: {{ msg.timestamp }}</small>
-                <br>
-                <a href="{{ url_for('delete', id=msg.id) }}">Delete</a>
+                <strong>Original:</strong> {{ msg.original }}<br>
+                <strong>Encrypted:</strong> {{ msg.encrypted }}<br>
+                <strong>Decrypted:</strong> {{ msg.decrypted }}<br>
+                <strong>Time:</strong> {{ msg.timestamp }}<br>
+                <a href="{{ url_for('delete_message', message_id=msg.id) }}">Delete</a>
+                <hr>
             </li>
         {% endfor %}
-    </ul>
+        </ul>
+    {% else %}
+        <p>No messages found.</p>
+    {% endif %}
 
-    <a href="{{ url_for('encrypt_decrypt') }}">Go Back to Encryption/Decryption</a> |
+    <a href="{{ url_for('encrypt_decrypt') }}">Encrypt/Decrypt</a> |
     <a href="{{ url_for('logout') }}">Logout</a>
-{% endblock %}
+</body>
+</html>

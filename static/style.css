@@ -1,184 +1,241 @@
-/* Reset and base */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
 }
 
+/* Body Styles */
 body {
-    background-color: #f7f9fc;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Navbar */
-.navbar {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    padding: 50px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: #0044cc;
-    color: #fff;
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    height: 100vh;
 }
 
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* Container */
 .container {
-    max-width: 800px;
-    margin: 30px auto;
+    width: 100%;
+    max-width: 500px;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-/* Headings */
-h1, h2, h3 {
-    color: #0044cc;
-    margin-bottom: 15px;
+/* Form Styles */
+.registration-box {
+    text-align: center;
 }
 
-/* Forms */
-.form-box {
+.registration-box h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: flex-start;
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
+form label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
 }
 
-.input-field, textarea, select {
-    padding: 10px 14px;
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.input-field:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: #0044cc;
+form input[type="email"],
+form input[type="password"] {
+    background-color: #f9f9f9;
 }
 
-/* Submit button */
-.submit-btn input[type="submit"] {
-    background-color: #0044cc;
-    color: #fff;
+form select {
+    background-color: #f9f9f9;
+}
+
+/* Button Styles */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
     border: none;
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 5px;
+    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.submit-btn input[type="submit"]:hover {
-    background-color: #003399;
+button:hover {
+    background-color: #45a049;
 }
 
-/* Register/login link */
-.register-prompt, p {
+/* Link Styles */
+p {
     margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Login Box */
+.login-box {
     text-align: center;
 }
 
-/* Result box */
-.result-box {
-    background-color: #eaf1ff;
-    border-left: 5px solid #0044cc;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 20px;
+.login-box h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Table */
-.data-table {
+/* Flash Message */
+.flash-messages {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.flash-messages ul {
+    list-style-type: none;
+}
+
+.flash-messages ul li {
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    color: #721c24;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+form input {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 25px;
-}
-
-.data-table th, .data-table td {
-    border: 1px solid #ccc;
     padding: 12px;
-    text-align: left;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
 }
 
-.data-table th {
-    background-color: #0044cc;
-    color: #fff;
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.data-table tr:nth-child(even) {
-    background-color: #f0f4ff;
+form button:hover {
+    background-color: #45a049;
 }
 
-.data-table a {
-    color: #d90000;
-    font-weight: bold;
+/* Link Styles */
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
     text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
 }
 
-.data-table a:hover {
+a:hover {
     text-decoration: underline;
 }
-.result-box {
-    background-color: #f7f7f7;
-    padding: 20px;
-    margin-top: 20px;
-    border-left: 5px solid #007BFF;
-    word-wrap: break-word;      /* ✅ long words break হবে */
-    white-space: pre-wrap;      /* ✅ preserve newlines + wrap */
-    overflow-x: auto;           /* ✅ horizontal scroll যদি দরকার হয় */
-    max-width: 100%;
-    border-radius: 8px;
-}
-/* Message History Section */
-.message-history {
-    background-color: #ffffff;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .login-box h1 {
+        font-size: 24px;
+    }
+
+    form button {
+        font-size: 16px;
+    }
 }
 
-/* Each individual message */
-.message-entry {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-left: 4px solid #007BFF;
-    border-radius: 6px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
 
-/* Make delete link more attractive */
-.message-entry a {
-    color: #ff4d4d;
-    text-decoration: none;
-    font-weight: bold;
-}
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
 
-.message-entry a:hover {
-    color: #e60000;
+    .registration-box h1 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 16px;
+    }
 }
